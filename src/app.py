@@ -62,7 +62,16 @@ def create():
             return jsonify({'correo':'Correo ya existe en la base'})
         else:
             data = persona.guardarPersona(dni,nombres,fecha,correo)
-            return jsonify({'datos': data})
+            if data[0] =='dni':
+                return jsonify({'dni': data[1]})
+            elif data[0] =='correo':
+                return jsonify({'correo': data[1]})
+            elif data[0] =='nombres':
+                return jsonify({'nombres': data[1]})
+            elif data[0] =='fecha':
+                return jsonify({'fecha': data[1]})
+            else:
+                return jsonify({'datos': data})
     except Exception as e:
         return jsonify({'error': e})
 
@@ -86,7 +95,16 @@ def update(id):
                 return jsonify({'correo':'Correo ya existe en la base'})
             else:
                 data =persona.actualizarPersona(dni,nombres,fecha,correo,id)
-                return jsonify({'datos':data})
+                if data[0] =='dni':
+                    return jsonify({'dni': data[1]})
+                elif data[0] =='correo':
+                    return jsonify({'correo': data[1]})
+                elif data[0] =='nombres':
+                    return jsonify({'nombres': data[1]})
+                elif data[0] =='fecha':
+                    return jsonify({'fecha': data[1]})
+                else:
+                    return jsonify({'datos':data})
         else:
             return jsonify({'datos': 'No existe ese dato con ese ID'})
     except Exception as e:

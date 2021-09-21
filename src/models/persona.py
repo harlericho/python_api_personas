@@ -29,17 +29,19 @@ def listadoPersonaID(id):
 
 def guardarPersona(dni,nombres,fecha,correo):
     if validar.validarDni(dni):
-        return "Dni es requerido"
+        return ["dni","Dni es requerido"]
     elif validar.validarMaximoDni(dni):
-        return "Dni debe ser 10 caracteres"
+        return ["dni","Dni debe ser 10 caracteres"]
+    elif validar.validarDniNumerico(dni) != True:
+        return ["dni","Dni debe ser numerico"]
     elif validar.validarNombres(nombres):
-        return "Nombres es requerido"
+        return ["nombres","Nombres es requerido"]
     elif validar.validarFecha(fecha):
-        return "Fecha es requerido"
+        return ["fecha","Fecha es requerido"]
     elif validar.validarCorreo(correo):
-        return "Correo es requerido"
+        return ["correo","Correo es requerido"]
     elif validar.validarCorreoReal(correo):
-        return "Correo es no tiene el formato idoneo"
+        return ["correo","Correo no tiene el formato idoneo"]
     else:
         try:
             db = cadenaConexion()
@@ -56,17 +58,19 @@ def guardarPersona(dni,nombres,fecha,correo):
 
 def actualizarPersona(dni,nombres,fecha,correo,id):
     if validar.validarDni(dni):
-        return "Dni es requerido"
+        return ["dni","Dni es requerido"]
     elif validar.validarMaximoDni(dni):
-        return "Dni debe ser 10 caracteres"
+        return ["dni","Dni debe ser 10 caracteres"]
+    elif validar.validarDniNumerico(dni) != True:
+        return ["dni","Dni debe ser numerico"]
     elif validar.validarNombres(nombres):
-        return "Nombres es requerido"
+        return ["nombres","Nombres es requerido"]
     elif validar.validarFecha(fecha):
-        return "Fecha es requerido"
+        return ["fecha","Fecha es requerido"]
     elif validar.validarCorreo(correo):
-        return "Correo es requerido"
+        return ["correo","Correo es requerido"]
     elif validar.validarCorreoReal(correo):
-        return "Correo es no tiene el formato idoneo"
+        return ["correo","Correo no tiene el formato idoneo"]
     else:
         try:
             db = cadenaConexion()

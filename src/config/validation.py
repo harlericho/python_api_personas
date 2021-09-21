@@ -2,6 +2,9 @@ import re
 def validarDni(dni):
     if dni is  None or len(dni) ==0:
         return True
+def validarDniNumerico(dni):
+    if dni.isdigit():
+        return True
 def validarMaximoDni(dni):
     if len(dni) <10 or len(dni)>=11:
         return True
